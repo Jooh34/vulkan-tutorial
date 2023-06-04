@@ -1,6 +1,7 @@
 # Vulkan Tutorial forked
 
 ## Copyright
+ - vulkan-tutorial (https://vulkan-tutorial.com/Introduction)
  - littleVulaknEngine (https://github.com/blurrypiano/littleVulkanEngine)
  - Youtube - Brendan Galea (https://www.youtube.com/playlist?list=PL8327DO66nu9qYVKLDmdLW_84-yE4auCR)
 
