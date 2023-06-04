@@ -1,4 +1,4 @@
-#include "lve_app_base.hpp"
+#include "first_app.hpp"
 
 // std
 #include <cstdlib>
@@ -7,7 +7,7 @@
 
 int main()
 {
-  lve::LveAppBase app{};
+  lve::FirstApp app{};
 
   try
   {

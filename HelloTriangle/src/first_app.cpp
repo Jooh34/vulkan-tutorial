@@ -1,10 +1,8 @@
-
-#include "lve_app_base.hpp"
+#include "first_app.hpp"
 
 namespace lve
 {
-
-    void LveAppBase::run()
+    void FirstApp::run()
     {
         while (!lveWindow.shouldClose())
         {
