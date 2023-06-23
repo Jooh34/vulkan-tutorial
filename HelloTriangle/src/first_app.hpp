@@ -26,6 +26,8 @@ class FirstApp {
 
  private:
   void loadModels();
+  void loadSierpinskiModel(int depth);
+  void Sierpinski(int depth, float width, float height, float px, float py, std::vector<LveModel::Vertex>& vertices);
   void createPipelineLayout();
   void createPipeline();
   void createCommandBuffers();

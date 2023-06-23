@@ -3,11 +3,13 @@
 // std
 #include <array>
 #include <stdexcept>
+#include <cmath>
 
 namespace lve {
 
 FirstApp::FirstApp() {
-  loadModels();
+  loadSierpinskiModel(7);
+  //loadModels();
   createPipelineLayout();
   createPipeline();
   createCommandBuffers();
@@ -27,6 +29,27 @@ void FirstApp::run() {
 void FirstApp::loadModels() {
   std::vector<LveModel::Vertex> vertices{{{0.0f, -0.5f}}, {{0.5f, 0.5f}}, {{-0.5f, 0.5f}}};
   lveModel = std::make_unique<LveModel>(lveDevice, vertices);
+}
+
+void FirstApp::loadSierpinskiModel(int depth) {
+    std::vector<LveModel::Vertex> vertices;
+    Sierpinski(depth, 1.f, 1.f, -0.5f, 0.5f, vertices);
+    lveModel = std::make_unique<LveModel>(lveDevice, vertices);
+}
+
+void FirstApp::Sierpinski(int depth, float width, float height, float px, float py, std::vector<LveModel::Vertex>& vertices) {
+    if (depth == 0)
+    {
+        vertices.push_back({{px, py}});
+        vertices.push_back({{px+(width/2), py-height}});
+        vertices.push_back({{px+width, py}});
+    }
+    else
+    {
+        Sierpinski(depth-1, width/2, height/2, px, py, vertices);
+        Sierpinski(depth-1, width/2, height/2, px+(width/4), py-(height/2), vertices);
+        Sierpinski(depth-1, width/2, height/2, px+(width/2), py, vertices);
+    }
 }
 
 void FirstApp::createPipelineLayout() {
